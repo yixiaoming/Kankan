@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -8,13 +8,10 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId rootProject.ext.applicationId
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -35,6 +32,7 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+
 }
 
 dependencies {
@@ -44,36 +42,11 @@ dependencies {
 
     kapt common.databindingCompiler
 
-    implementation project(":common:lib-mvvm")
-
     implementation common.appCompat
-    implementation common.constraintlayout
     implementation common.androidxCoreKtx
     implementation common.kotlinStdlibJdk7
-    implementation common.design
     implementation common.lifecycle
     kapt common.lifecycleProcessor
-    implementation common.roomRuntime
-    kapt common.roomCompiler
-    implementation common.roomRxjava
-    testImplementation common.roomTest
-    implementation common.retrofit
-    implementation common.retrofitGson
-    implementation common.retrofitRxjava
-    implementation common.okhttp
-
-    implementation common.jiecaoPlayer
-    implementation common.glide
-    kapt common.glideProcessor
-    implementation common.rxJava
-    implementation common.rxAndroid
-    implementation common.gson
-    implementation common.androidxAnnotation
-    implementation common.swiperefreshlayout
-
-    testImplementation test.junit
-    androidTestImplementation test.extJunit
-    androidTestImplementation test.espresso
 }
 repositories {
     mavenCentral()

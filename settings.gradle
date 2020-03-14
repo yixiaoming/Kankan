@@ -1,2 +1,3 @@
 rootProject.name='Kankan'
 include ':app'
+include ":common:lib-mvvm"
