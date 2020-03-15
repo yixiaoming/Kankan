@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/left_icon"
+            android:layout_width="@dimen/tab_icon_size"
+            android:layout_height="@dimen/tab_icon_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/left_icon"
+            app:layout_constraintRight_toLeftOf="@id/right_icon"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tab_find"
+                android:layout_width="@dimen/tab_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/find_more" />
+
+            <TextView
+                android:id="@+id/tab_recommend"
+                android:layout_width="@dimen/tab_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/recommend" />
+
+            <TextView
+                android:id="@+id/tab_daily"
+                android:layout_width="@dimen/tab_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/daily" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/right_icon"
+            android:layout_width="@dimen/tab_icon_size"
+            android:layout_height="@dimen/tab_icon_size"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

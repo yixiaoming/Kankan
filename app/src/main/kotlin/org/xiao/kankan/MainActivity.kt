@@ -1,13 +1,13 @@
 package org.xiao.kankan
 
 import android.os.Bundle
-import org.xiao.mvvm.MvvmActivity
 import org.xiao.kankan.databinding.ActivityMainBinding
+import org.xiao.mvvm.MvvmActivity
 
 class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
 
     private val mMainFragment by lazy {
-        MainFragment.newInstance("")
+        MainFragment.newInstance()
     }
 
     override fun getRootLayoutId(): Int {
@@ -20,6 +20,6 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportFragmentManager.beginTransaction().replace(R.id.main_container, mMainFragment).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, mMainFragment).commit()
     }
 }
