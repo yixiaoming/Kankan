@@ -40,13 +40,22 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    kapt common.databindingCompiler
-
     implementation common.appCompat
     implementation common.androidxCoreKtx
     implementation common.kotlinStdlibJdk8
     implementation common.lifecycle
     kapt common.lifecycleProcessor
+
+    implementation common.lifecycle
+    kapt common.lifecycleProcessor
+    implementation common.roomRuntime
+    kapt common.roomCompiler
+    implementation common.roomRxjava
+    testImplementation common.roomTest
+    implementation common.retrofit
+    implementation common.retrofitGson
+    implementation common.retrofitRxjava
+    implementation common.okhttp
 }
 repositories {
     mavenCentral()

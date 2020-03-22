@@ -53,7 +53,7 @@ dependencies {
     implementation common.appCompat
     implementation common.constraintlayout
     implementation common.androidxCoreKtx
-    implementation common.kotlinStdlibJdk7
+    implementation common.kotlinStdlibJdk8
     implementation common.design
     implementation common.lifecycle
     kapt common.lifecycleProcessor
