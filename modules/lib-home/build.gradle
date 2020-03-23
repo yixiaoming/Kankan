@@ -41,6 +41,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(":common:lib-mvvm")
+    implementation project(":common:lib-kaiyan")
 
     kapt common.databindingCompiler
 

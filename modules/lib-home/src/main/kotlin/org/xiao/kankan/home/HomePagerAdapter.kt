@@ -3,9 +3,8 @@ package org.xiao.kankan.home
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class HomePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
+class HomePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     private lateinit var mFragmentList: MutableList<Fragment>
 
     override fun getItem(position: Int): Fragment {

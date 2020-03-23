@@ -56,6 +56,9 @@ dependencies {
     implementation common.retrofitGson
     implementation common.retrofitRxjava
     implementation common.okhttp
+
+    testImplementation test.junit
+    androidTestImplementation test.extJunit
 }
 repositories {
     mavenCentral()

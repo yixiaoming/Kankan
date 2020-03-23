@@ -17,7 +17,7 @@ class HomeFragment : MvvmFragment<HomeFragmentBinding, HomeViewModel>() {
         }
     }
 
-    lateinit var mPagerAdapter: HomePagerAdapter
+    lateinit var pagerAdapter: HomePagerAdapter
 
     override fun getRootLayoutId(): Int {
         return R.layout.home_fragment
@@ -29,14 +29,15 @@ class HomeFragment : MvvmFragment<HomeFragmentBinding, HomeViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mPagerAdapter = HomePagerAdapter(childFragmentManager)
+        pagerAdapter = HomePagerAdapter(childFragmentManager)
         var fragments = mutableListOf<Fragment>(
                 FindMoreFragment.newInstance(),
                 RecommendFragment.newInstance(),
                 DailyFragment.newInstance()
         )
-        mPagerAdapter.setFragments(fragments)
-        mBinding.viewpager.adapter = mPagerAdapter
+        pagerAdapter.setFragments(fragments)
+        mBinding.viewpager.adapter = pagerAdapter
+        mBinding.viewpager.currentItem = 1
     }
 
 }
