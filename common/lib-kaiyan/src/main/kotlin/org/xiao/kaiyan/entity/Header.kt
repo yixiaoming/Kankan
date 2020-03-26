@@ -1,7 +1,5 @@
 package org.xiao.kaiyan.entity
 
-import java.util.*
-
 data class Header(
         val actionUrl: String,
         val cover: Cover,

@@ -1,15 +1,13 @@
 package org.xiao.kaiyan.entity
 
-import java.util.*
-
-data class NormalData(
+data class Data(
         val actionUrl: String,
         val author: Author,
         val backgroundImage: String,
         val category: String,
         val collected: Boolean,
         val consumption: Consumption,
-        val content: Content,
+        val content: Data,
         val count: Int,
         val cover: Cover,
         val dataType: String,
@@ -26,7 +24,7 @@ data class NormalData(
         val ifNewest: Boolean,
         val ifPgc: Boolean,
         val ifShowNotificationIcon: Boolean,
-        val itemList: List<UgcDataItem>,
+        val itemList: List<Data>,
         val label: String,
         val labelList: List<String>,
         val lastViewTime: Long,
@@ -57,5 +55,15 @@ data class NormalData(
         val topicTitle: String,
         val type: String,
         val uid: Int,
-        val webUrl: WebUrl
+        val webUrl: WebUrl,
+
+        val dailyResource: Boolean,
+        val nickname: String,
+        val url: String,
+        val urls: List<String>,
+        val userCover: String,
+
+        val autoPlay: Boolean,
+        val image: String,
+        val shade: Boolean
 )

@@ -1,4 +1,4 @@
-package org.xiao.kankan.home.recommend
+package org.xiao.kankan.home.daily
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 import org.xiao.kaiyan.api.RetrofitManager
 import org.xiao.kaiyan.entity.CardList
 
-class RecommendViewModel : ViewModel() {
+class FeedViewModel : ViewModel() {
 
     val mCardList: MutableLiveData<CardList> by lazy {
         MutableLiveData<CardList>()
@@ -16,7 +16,7 @@ class RecommendViewModel : ViewModel() {
 
     fun loadData() {
         GlobalScope.launch(Dispatchers.IO) {
-            val content = RetrofitManager.kaiyanApi.getAllRec().execute().body()
+            val content = RetrofitManager.kaiyanApi.getFeed().execute().body()
             mCardList.postValue(content)
         }
     }

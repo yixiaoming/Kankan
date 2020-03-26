@@ -1,4 +1,4 @@
-package org.xiao.kankan.home.recommend
+package org.xiao.kankan.home.daily
 
 import android.os.Bundle
 import android.view.View
@@ -6,13 +6,13 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.xiao.kankan.home.R
 import org.xiao.kankan.home.adapter.CardAdapter
-import org.xiao.kankan.home.databinding.RecommendFragmentBinding
+import org.xiao.kankan.home.databinding.FeedFragmentBinding
 import org.xiao.mvvm.MvvmFragment
 
-class RecommendFragment : MvvmFragment<RecommendFragmentBinding, RecommendViewModel>() {
+class FeedFragment : MvvmFragment<FeedFragmentBinding, FeedViewModel>() {
     companion object {
-        fun newInstance(): RecommendFragment {
-            return RecommendFragment()
+        fun newInstance(): FeedFragment {
+            return FeedFragment()
         }
     }
 
@@ -21,11 +21,11 @@ class RecommendFragment : MvvmFragment<RecommendFragmentBinding, RecommendViewMo
     }
 
     override fun getRootLayoutId(): Int {
-        return R.layout.recommend_fragment
+        return R.layout.feed_fragment
     }
 
-    override fun getViewModelClass(): Class<RecommendViewModel> {
-        return RecommendViewModel::class.java
+    override fun getViewModelClass(): Class<FeedViewModel> {
+        return FeedViewModel::class.java
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

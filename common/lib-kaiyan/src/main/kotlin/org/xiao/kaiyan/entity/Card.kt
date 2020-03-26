@@ -1,8 +1,8 @@
 package org.xiao.kaiyan.entity
 
-data class AllRecItem(
+data class Card(
         val adIndex: Int,
-        val data: NormalData,
+        val data: Data,
         val id: Int,
         val type: String,
         val tag: String
