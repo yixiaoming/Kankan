@@ -35,6 +35,7 @@ class HomeFragment : MvvmFragment<HomeFragmentBinding, HomeViewModel>() {
                 RecommendFragment.newInstance(),
                 FeedFragment.newInstance()
         )
+        mBinding.viewpager.offscreenPageLimit = 0
         pagerAdapter.setFragments(fragments)
         mBinding.viewpager.adapter = pagerAdapter
         mBinding.viewpager.currentItem = 1

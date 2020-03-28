@@ -42,6 +42,7 @@ dependencies {
 
     implementation project(":common:lib-mvvm")
     implementation project(":common:lib-kaiyan")
+    implementation project(":common:lib-glide")
 
     kapt common.databindingCompiler
 
@@ -65,8 +66,7 @@ dependencies {
     implementation common.okhttp
 
     implementation common.jiecaoPlayer
-    implementation common.glide
-    kapt common.glideProcessor
+
     implementation common.rxJava
     implementation common.rxAndroid
     implementation common.gson

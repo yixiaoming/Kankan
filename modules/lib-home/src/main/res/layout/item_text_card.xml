@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="@dimen/card_default_padding">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Title"
-        android:textSize="30dp" />
+        android:textSize="@dimen/text_item_title_size"
+        android:textStyle="bold"
+        tools:text="Title" />
 
     <TextView
         android:id="@+id/rightText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:textSize="20dp" />
+        android:layout_gravity="right|bottom"
+        android:textSize="@dimen/text_item_right_text_size"
+        tools:text="Rightext" />
 
 </FrameLayout>

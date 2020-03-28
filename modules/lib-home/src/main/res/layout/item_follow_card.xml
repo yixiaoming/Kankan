@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/card_default_padding">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/coverLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/follow_card_item_cover_height"
+        app:cardCornerRadius="@dimen/cover_card_radius"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/cover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:src="@color/colorPrimary" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/authorImgLayout"
+        android:layout_width="@dimen/author_cover_size"
+        android:layout_height="@dimen/author_cover_size"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="@dimen/author_cover_radius"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/coverLayout">
+
+        <ImageView
+            android:id="@+id/authorImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:src="@color/colorAccent" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/card_cover_left_margin"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textSize="@dimen/card_title_font_size"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/authorImgLayout"
+        app:layout_constraintTop_toTopOf="@id/authorImgLayout"
+        tools:text="Title" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/card_cover_left_margin"
+        android:textSize="@dimen/card_subtitle_font_size"
+        app:layout_constraintBottom_toBottomOf="@id/authorImgLayout"
+        app:layout_constraintLeft_toRightOf="@id/authorImgLayout"
+        tools:text="SubTitle" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

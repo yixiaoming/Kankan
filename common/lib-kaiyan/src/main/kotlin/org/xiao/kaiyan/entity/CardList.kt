@@ -1,9 +1,8 @@
 package org.xiao.kaiyan.entity
 
 data class CardList(
-        val adExist: Boolean,
-        val count: Int,
-        val itemList: List<Card>,
-        val nextPageUrl: String,
-        val total: Int
+        val count: Int = 0,
+        val itemList: List<Card> = emptyList(),
+        val nextPageUrl: String = "",
+        val total: Int = 0
 )

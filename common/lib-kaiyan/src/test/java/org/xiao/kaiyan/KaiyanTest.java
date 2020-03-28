@@ -23,9 +23,10 @@ public class KaiyanTest {
     public void getFindMore() throws IOException {
         CardList cardList = RetrofitManager.INSTANCE.getKaiyanApi().getFindMore().execute().body();
         for (Card card : cardList.getItemList()) {
-            System.out.println(card.getType());
-            System.out.println(card.getData().getTitle());
-            System.out.println(card.getData().getText());
+            System.out.println("type:" + card.getType());
+            System.out.println("title:" + card.getData().getTitle());
+            System.out.println("data-text:" + card.getData().getText());
+            System.out.println("data-img:" + card.getData().getImage());
             System.out.println();
         }
     }

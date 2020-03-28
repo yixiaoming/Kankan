@@ -2,4 +2,15 @@
 <resources>
     <dimen name="tab_width">50dp</dimen>
     <dimen name="tab_icon_size">30dp</dimen>
+    <dimen name="text_item_title_size">20sp</dimen>
+    <dimen name="text_item_right_text_size">15sp</dimen>
+    <dimen name="follow_card_item_cover_height">200dp</dimen>
+    <dimen name="author_cover_size">40dp</dimen>
+    <dimen name="recyclerview_padding">10dp</dimen>
+    <dimen name="cover_card_radius">8dp</dimen>
+    <dimen name="author_cover_radius">20dp</dimen>
+    <dimen name="card_cover_left_margin">10dp</dimen>
+    <dimen name="card_title_font_size">16sp</dimen>
+    <dimen name="card_subtitle_font_size">12sp</dimen>
+    <dimen name="card_default_padding">10dp</dimen>
 </resources>
