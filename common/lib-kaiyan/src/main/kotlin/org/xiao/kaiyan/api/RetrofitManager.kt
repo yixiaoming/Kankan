@@ -1,7 +1,6 @@
 package org.xiao.kaiyan.api
 
 import okhttp3.OkHttpClient
-import org.xiao.kaiyan.gson.CardGsonConverterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -17,7 +16,6 @@ object RetrofitManager {
     val kaiyanApi: KaiyanApi by lazy {
         val retrofit: Retrofit = Retrofit.Builder()
                 .baseUrl(KaiyanApi.BASE_URL)
-//                .addConverterFactory(CardGsonConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build()
