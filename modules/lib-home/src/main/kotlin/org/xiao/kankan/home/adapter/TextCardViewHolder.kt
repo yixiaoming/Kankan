@@ -1,6 +1,5 @@
 package org.xiao.kankan.home.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +14,21 @@ class TextCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), IC
     private val rightText: TextView = itemView.rightText
 
     override fun bind(card: Card) {
-        title.text = card.data?.text
-        rightText.text = card.data?.rightText
+        when (card.data?.type) {
+            "footer3" -> {
+                title.text = ""
+                rightText.text = "${card.data?.text} >"
+            }
+            "footer2" -> {
+                title.text = ""
+                rightText.text = card.data?.text
+            }
+            else -> {
+                title.text = card.data?.text
+                rightText.text = card.data?.rightText
+            }
+        }
+
     }
 
     companion object {

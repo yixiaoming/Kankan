@@ -45,6 +45,7 @@ data class Data(
         val text: String = "",
         val thumbPlayUrl: String = "",
         val title: String = "",
+        val titleList: List<String> = emptyList(),
         val topicTitle: String = "",
         val type: String = "",
         val uid: Int = 0,

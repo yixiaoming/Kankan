@@ -7,6 +7,10 @@ object CardViewHolderCreater {
     private const val CARD_TYPE_INVALID = 0
     private const val CARD_TYPE_TEXT = 1
     private const val CARD_TYPE_FOLLOW = 2
+    private const val CARD_INFORMATION = 3
+    private const val CARD_SMALL_VIDEO = 4
+    private const val CARD_BRIEF_CARD = 5
+    private const val CARD_BANNER = 6
 
     private val typeMap: MutableMap<String, Int> = mutableMapOf()
 
@@ -14,6 +18,10 @@ object CardViewHolderCreater {
         typeMap["invalidCard"] = CARD_TYPE_INVALID
         typeMap["textCard"] = CARD_TYPE_TEXT
         typeMap["followCard"] = CARD_TYPE_FOLLOW
+        typeMap["informationCard"] = CARD_INFORMATION
+        typeMap["videoSmallCard"] = CARD_SMALL_VIDEO
+        typeMap["briefCard"] = CARD_BRIEF_CARD
+        typeMap["banner"] = CARD_BANNER
     }
 
     fun getType(typeString: String): Int {
@@ -27,6 +35,18 @@ object CardViewHolderCreater {
             }
             CARD_TYPE_FOLLOW -> {
                 FollowCardViewHolder.create(parent)
+            }
+            CARD_INFORMATION -> {
+                InformationViewHolder.create(parent)
+            }
+            CARD_SMALL_VIDEO -> {
+                SmallVideoViewHolder.create(parent)
+            }
+            CARD_BRIEF_CARD -> {
+                BriefCardViewHolder.create(parent)
+            }
+            CARD_BANNER -> {
+                BannerViewHolder.create(parent)
             }
             else -> {
                 InvalidViewHolder.create(parent)

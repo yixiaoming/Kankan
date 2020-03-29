@@ -38,5 +38,4 @@ class FollowCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), 
             return FollowCardViewHolder(itemView)
         }
     }
-
 }
