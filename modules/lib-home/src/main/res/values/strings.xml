@@ -3,4 +3,5 @@
     <string name="find_more">发现</string>
     <string name="recommend">推荐</string>
     <string name="daily">日报</string>
+    <string name="loadmore_loading">加载中...</string>
 </resources>

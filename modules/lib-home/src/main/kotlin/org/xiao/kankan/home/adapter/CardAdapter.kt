@@ -3,9 +3,8 @@ package org.xiao.kankan.home.adapter
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.xiao.kaiyan.entity.Card
-import java.lang.IllegalStateException
 
-class CardAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CardAdapter : FooterAdapter() {
 
     private var cards: MutableList<Card> = mutableListOf()
 
@@ -29,10 +28,13 @@ class CardAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = cards[position]
-        if (holder is ICardViewHolder) {
-            holder.bind(item)
-        } else {
-            throw IllegalStateException("Your VewHolder must implement ICrdViewHolder")
+        when (holder) {
+            is ICardViewHolder -> {
+                holder.bind(item)
+            }
+            else -> {
+                throw IllegalStateException("Your VewHolder must implement ICrdViewHolder")
+            }
         }
     }
 }
