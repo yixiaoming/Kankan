@@ -3,7 +3,7 @@ package org.xiao.kankan.home
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import org.xiao.kankan.home.daily.FeedFragment
+import org.xiao.kankan.home.feed.FeedFragment
 import org.xiao.kankan.home.databinding.HomeFragmentBinding
 import org.xiao.kankan.home.findmore.FindMoreFragment
 import org.xiao.kankan.home.recommend.RecommendFragment

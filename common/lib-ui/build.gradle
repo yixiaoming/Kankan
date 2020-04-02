@@ -40,39 +40,14 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(":common:lib-mvvm")
-    implementation project(":common:lib-kaiyan")
-    implementation project(":common:lib-glide")
-    implementation project(":common:lib-ui")
-
     kapt common.databindingCompiler
 
-    implementation common.coroutinesCore
-    implementation common.coroutinesAndroid
-
     implementation common.appCompat
-    implementation common.constraintlayout
     implementation common.androidxCoreKtx
     implementation common.kotlinStdlibJdk8
-    implementation common.design
     implementation common.lifecycle
+    implementation common.design
     kapt common.lifecycleProcessor
-    implementation common.roomRuntime
-    kapt common.roomCompiler
-    implementation common.roomRxjava
-    testImplementation common.roomTest
-    implementation common.retrofit
-    implementation common.retrofitGson
-    implementation common.retrofitRxjava
-    implementation common.okhttp
-
-    implementation common.jiecaoPlayer
-
-    implementation common.rxJava
-    implementation common.rxAndroid
-    implementation common.gson
-    implementation common.androidxAnnotation
-    implementation common.swiperefreshlayout
 }
 repositories {
     mavenCentral()

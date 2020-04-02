@@ -8,6 +8,7 @@ import org.xiao.kankan.home.R
 import org.xiao.kankan.home.adapter.CardAdapter
 import org.xiao.kankan.home.databinding.RecommendFragmentBinding
 import org.xiao.mvvm.MvvmFragment
+import org.xiao.ui.loadmore.LoadMoreRecyclerView
 
 class RecommendFragment : MvvmFragment<RecommendFragmentBinding, RecommendViewModel>() {
     companion object {
@@ -38,11 +39,21 @@ class RecommendFragment : MvvmFragment<RecommendFragmentBinding, RecommendViewMo
     private fun initViews() {
         mBinding.recyclerview.layoutManager = LinearLayoutManager(context)
         mBinding.recyclerview.adapter = cardAdapter
+        mBinding.recyclerview.setLoadMoreEnable(true)
+        mBinding.recyclerview.setLoadMoreListener(object : LoadMoreRecyclerView.LoadMoreListener {
+            override fun onLoadMore() {
+                if (mModel.loadMoreData()) {
+                    mBinding.recyclerview.setLoadMoreComplete()
+                } else {
+                    mBinding.recyclerview.setNoMoreContent()
+                }
+            }
+        })
     }
 
     private fun initObservers() {
         mModel.mCardList.observe(viewLifecycleOwner, Observer {
-            cardAdapter.initData(it.itemList)
+            cardAdapter.addDatas(it.itemList)
         })
     }
 }

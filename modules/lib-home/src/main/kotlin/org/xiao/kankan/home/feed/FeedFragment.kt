@@ -1,14 +1,12 @@
-package org.xiao.kankan.home.daily
+package org.xiao.kankan.home.feed
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.xiao.kankan.home.R
 import org.xiao.kankan.home.adapter.CardAdapter
-import org.xiao.kankan.home.adapter.FooterAdapter
-import org.xiao.kankan.home.adapter.FooterView
 import org.xiao.kankan.home.databinding.FeedFragmentBinding
 import org.xiao.mvvm.MvvmFragment
 
@@ -40,10 +38,14 @@ class FeedFragment : MvvmFragment<FeedFragmentBinding, FeedViewModel>() {
 
     private fun initViews() {
         mBinding.recyclerview.layoutManager = LinearLayoutManager(context)
-        cardAdapter.setLoadMoreListener(object : FooterAdapter.LoadMoreLisener {
+        mBinding.recyclerview.setLoadMoreEnable(true)
+        mBinding.recyclerview.setLoadMoreListener(object : org.xiao.ui.loadmore.LoadMoreRecyclerView.LoadMoreListener {
             override fun onLoadMore() {
-                Toast.makeText(context, "加载成功", Toast.LENGTH_SHORT).show()
-                cardAdapter.updateLoadmoreState(FooterView.STATE_NORMAL)
+                if (mModel.loadMoreData()) {
+                    mBinding.recyclerview.setLoadMoreComplete()
+                } else {
+                    mBinding.recyclerview.setNoMoreContent()
+                }
             }
         })
         mBinding.recyclerview.adapter = cardAdapter
@@ -51,7 +53,7 @@ class FeedFragment : MvvmFragment<FeedFragmentBinding, FeedViewModel>() {
 
     private fun initObservers() {
         mModel.mCardList.observe(viewLifecycleOwner, Observer {
-            cardAdapter.initData(it.itemList)
+            cardAdapter.addDatas(it.itemList)
         })
     }
 }

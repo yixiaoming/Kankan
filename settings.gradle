@@ -3,6 +3,7 @@ include ':app'
 include ":common:lib-mvvm"
 include ":common:lib-kaiyan"
 include ":common:lib-glide"
+include ":common:lib-ui"
 include ":modules:lib-home"
 include ":modules:lib-community"
 include ":modules:lib-notification"

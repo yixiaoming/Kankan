@@ -2,8 +2,11 @@ package org.xiao.kaiyan.api
 
 import org.xiao.kaiyan.entity.CardList
 import org.xiao.kaiyan.entity.TabInfo
+import org.xiao.kaiyan.entity.WebUrl
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface KaiyanApi {
 
@@ -27,5 +30,18 @@ interface KaiyanApi {
 
     @GET("api/v5/index/tab/feed?vc=591&deviceModel=PCAM00")
     fun getFeed(): Call<CardList>
+
+    @GET("api/v5/index/tab/allRec")
+    fun getNextPageRec(
+            @Query("page") page: Int,
+            @Query("isTag") isTag: Boolean,
+            @Query("adIndex") adIndex: Int
+    ): Call<CardList>
+
+    @GET("api/v5/index/tab/feed")
+    fun getNextPageFeed(
+            @Query("date") date: Long,
+            @Query("num") num: Int
+    ): Call<CardList>
 
 }

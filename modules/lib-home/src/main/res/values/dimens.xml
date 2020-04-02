@@ -7,7 +7,6 @@
     <dimen name="small_video_item_cover_width">140dp</dimen>
     <dimen name="brief_item_cover_size">50dp</dimen>
     <dimen name="author_cover_size">40dp</dimen>
-    <dimen name="recyclerview_padding">10dp</dimen>
     <dimen name="cover_card_radius">8dp</dimen>
     <dimen name="author_cover_radius">20dp</dimen>
     <dimen name="card_cover_left_margin">10dp</dimen>

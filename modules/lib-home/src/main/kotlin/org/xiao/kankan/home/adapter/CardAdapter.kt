@@ -4,13 +4,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.xiao.kaiyan.entity.Card
 
-class CardAdapter : FooterAdapter() {
+class CardAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var cards: MutableList<Card> = mutableListOf()
 
     fun initData(newData: List<Card>) {
         cards.clear()
         cards.addAll(newData)
+        notifyDataSetChanged()
+    }
+
+    fun addDatas(newDatas: List<Card>) {
+        cards.addAll(newDatas)
         notifyDataSetChanged()
     }
 
