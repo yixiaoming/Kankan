@@ -1,8 +1,8 @@
 package org.xiao.kankan
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import org.xiao.kankan.community.CommunityFragment
 import org.xiao.kankan.databinding.MainFragmentBinding
@@ -13,25 +13,43 @@ import org.xiao.mvvm.MvvmFragment
 
 class MainFragment : MvvmFragment<MainFragmentBinding, MainViewModel>() {
 
-    private val mHomeFragment by lazy {
-        HomeFragment.newInstance()
-    }
-    private val mCommunityFragment by lazy {
-        CommunityFragment.newInstance()
-    }
-    private val mNotificationFragment by lazy {
-        NotificationFragment.newInstance()
-    }
-    private val mPersonalFragment by lazy {
-        PersonalFragment.newInstance()
-    }
-    private var mCurFragment: Fragment? = null
-
     companion object {
+        const val TAG = "MainFragment"
+
         fun newInstance(): MainFragment {
             return MainFragment()
         }
     }
+
+    private val mHomeFragment by lazy {
+        val tag = HomeFragment::class.java.name
+        if (childFragmentManager.findFragmentByTag(tag) != null) {
+            return@lazy childFragmentManager.findFragmentByTag(tag)
+        }
+        HomeFragment.newInstance()
+    }
+    private val mCommunityFragment by lazy {
+        val tag = CommunityFragment::class.java.name
+        if (childFragmentManager.findFragmentByTag(tag) != null) {
+            return@lazy childFragmentManager.findFragmentByTag(tag)
+        }
+        CommunityFragment.newInstance()
+    }
+    private val mNotificationFragment by lazy {
+        val tag = NotificationFragment::class.java.name
+        if (childFragmentManager.findFragmentByTag(tag) != null) {
+            return@lazy childFragmentManager.findFragmentByTag(tag)
+        }
+        NotificationFragment.newInstance()
+    }
+    private val mPersonalFragment by lazy {
+        val tag = PersonalFragment::class.java.name
+        if (childFragmentManager.findFragmentByTag(tag) != null) {
+            return@lazy childFragmentManager.findFragmentByTag(tag)
+        }
+        PersonalFragment.newInstance()
+    }
+    private var mCurFragment: Fragment? = null
 
     override fun getRootLayoutId(): Int {
         return R.layout.main_fragment
@@ -44,7 +62,6 @@ class MainFragment : MvvmFragment<MainFragmentBinding, MainViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mBinding.bottomBar.setOnNavigationItemSelectedListener {
-            Toast.makeText(context, "123", Toast.LENGTH_SHORT).show()
             var willShowFragment: Fragment? = null
             when (it.itemId) {
                 R.id.item_home -> {
@@ -68,13 +85,13 @@ class MainFragment : MvvmFragment<MainFragmentBinding, MainViewModel>() {
     private fun switchFragment(willShowFragment: Fragment?): Boolean {
         if (willShowFragment == null) return true
         if (willShowFragment == mCurFragment) return true
-        val transaction = parentFragmentManager.beginTransaction()
+        val transaction = childFragmentManager.beginTransaction()
         if (mCurFragment != null) {
             transaction.hide(mCurFragment!!)
         }
         mCurFragment = willShowFragment
-        val tag = mCurFragment!!.javaClass.canonicalName
-        if (parentFragmentManager.findFragmentByTag(tag) == null) {
+        val tag = mCurFragment!!::class.java.name
+        if (childFragmentManager.findFragmentByTag(tag) == null) {
             transaction.add(R.id.container, mCurFragment!!, tag)
         }
         transaction.show(mCurFragment!!)

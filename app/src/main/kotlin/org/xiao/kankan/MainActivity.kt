@@ -1,10 +1,15 @@
 package org.xiao.kankan
 
 import android.os.Bundle
+import android.util.Log
 import org.xiao.kankan.databinding.ActivityMainBinding
 import org.xiao.mvvm.MvvmActivity
 
 class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
+
+    companion object {
+        const val TAG = "MainActivity"
+    }
 
     private val mMainFragment by lazy {
         MainFragment.newInstance()
@@ -20,6 +25,7 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "onCreate: $MainFragment");
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, mMainFragment).commit()
     }
 }

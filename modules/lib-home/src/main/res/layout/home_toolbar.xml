@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -11,47 +10,29 @@
             android:id="@+id/left_icon"
             android:layout_width="@dimen/tab_icon_size"
             android:layout_height="@dimen/tab_icon_size"
+            android:visibility="gone"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
+        <org.xiao.ui.tablayout.TabLayout
+            android:id="@+id/tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:indicator_color="@color/colorAccent"
+            app:indicator_radius="5dp"
+            app:indicator_width="20dp"
+            app:item_width="60dp"
+            app:indicator_font_size="6sp"
             app:layout_constraintLeft_toRightOf="@id/left_icon"
             app:layout_constraintRight_toLeftOf="@id/right_icon"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/tab_find"
-                android:layout_width="@dimen/tab_width"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/find_more"
-                android:textSize="@dimen/tab_text_size" />
-
-            <TextView
-                android:id="@+id/tab_recommend"
-                android:layout_width="@dimen/tab_width"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/recommend"
-                android:textSize="@dimen/tab_text_size" />
-
-            <TextView
-                android:id="@+id/tab_daily"
-                android:layout_width="@dimen/tab_width"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/daily"
-                android:textSize="@dimen/tab_text_size" />
-        </LinearLayout>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/right_icon"
             android:layout_width="@dimen/tab_icon_size"
             android:layout_height="@dimen/tab_icon_size"
+            android:visibility="gone"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
