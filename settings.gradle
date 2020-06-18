@@ -8,3 +8,4 @@ include ":modules:lib-home"
 include ":modules:lib-community"
 include ":modules:lib-notification"
 include ":modules:lib-personal"
+include ':plugins:tinypng'

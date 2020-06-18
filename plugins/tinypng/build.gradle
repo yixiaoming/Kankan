@@ -1,0 +1,27 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation localGroovy()
+    implementation gradleApi()
+
+    implementation "com.tinify:tinify:1.6.2"
+}
+
+group "org.xiao.plugin"
+version '1.0.0'
+uploadArchives{
+    repositories {
+        mavenDeployer {
+            repository(url: uri('./repo'))
+        }
+    }
+}
+
+
