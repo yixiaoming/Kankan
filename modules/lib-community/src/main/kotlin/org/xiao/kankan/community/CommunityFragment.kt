@@ -1,9 +1,8 @@
 package org.xiao.kankan.community
 
-import org.xiao.kankan.community.databinding.CommunityFragmentBinding
 import org.xiao.mvvm.MvvmFragment
 
-class CommunityFragment : MvvmFragment<CommunityFragmentBinding, CommunityViewModel>() {
+class CommunityFragment : MvvmFragment<CommunityViewModel>() {
     companion object {
         fun newInstance(): CommunityFragment {
             return CommunityFragment()

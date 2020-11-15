@@ -2,10 +2,9 @@ package org.xiao.kankan
 
 import android.os.Bundle
 import android.util.Log
-import org.xiao.kankan.databinding.ActivityMainBinding
 import org.xiao.mvvm.MvvmActivity
 
-class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
+class MainActivity : MvvmActivity<MainViewModel>() {
 
     companion object {
         const val TAG = "MainActivity"

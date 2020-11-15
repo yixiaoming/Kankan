@@ -1,9 +1,8 @@
 package org.xiao.kankan.personal
 
-import org.xiao.kankan.personal.databinding.PersonalFragmentBinding
 import org.xiao.mvvm.MvvmFragment
 
-class PersonalFragment : MvvmFragment<PersonalFragmentBinding, PersonalViewModel>() {
+class PersonalFragment : MvvmFragment<PersonalViewModel>() {
     companion object {
         fun newInstance(): PersonalFragment {
             return PersonalFragment()

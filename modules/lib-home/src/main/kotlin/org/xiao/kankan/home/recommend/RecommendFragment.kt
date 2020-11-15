@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.recommend_fragment.*
 import org.xiao.kankan.home.R
 import org.xiao.kankan.home.adapter.CardAdapter
-import org.xiao.kankan.home.databinding.RecommendFragmentBinding
 import org.xiao.mvvm.MvvmFragment
 import org.xiao.ui.loadmore.LoadMoreRecyclerView
 
-class RecommendFragment : MvvmFragment<RecommendFragmentBinding, RecommendViewModel>() {
+class RecommendFragment : MvvmFragment<RecommendViewModel>() {
     companion object {
         fun newInstance(): RecommendFragment {
             return RecommendFragment()
@@ -37,15 +37,15 @@ class RecommendFragment : MvvmFragment<RecommendFragmentBinding, RecommendViewMo
     }
 
     private fun initViews() {
-        mBinding.recyclerview.layoutManager = LinearLayoutManager(context)
-        mBinding.recyclerview.adapter = cardAdapter
-        mBinding.recyclerview.setLoadMoreEnable(true)
-        mBinding.recyclerview.setLoadMoreListener(object : LoadMoreRecyclerView.LoadMoreListener {
+        recyclerview.layoutManager = LinearLayoutManager(context)
+        recyclerview.adapter = cardAdapter
+        recyclerview.setLoadMoreEnable(true)
+        recyclerview.setLoadMoreListener(object : LoadMoreRecyclerView.LoadMoreListener {
             override fun onLoadMore() {
                 if (mModel.loadMoreData()) {
-                    mBinding.recyclerview.setLoadMoreComplete()
+                    recyclerview.setLoadMoreComplete()
                 } else {
-                    mBinding.recyclerview.setNoMoreContent()
+                    recyclerview.setNoMoreContent()
                 }
             }
         })

@@ -5,12 +5,13 @@ import android.os.Handler
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.feed_fragment.*
 import org.xiao.kankan.home.R
 import org.xiao.kankan.home.adapter.CardAdapter
 import org.xiao.kankan.home.databinding.FeedFragmentBinding
 import org.xiao.mvvm.MvvmFragment
 
-class FeedFragment : MvvmFragment<FeedFragmentBinding, FeedViewModel>() {
+class FeedFragment : MvvmFragment<FeedViewModel>() {
     companion object {
         fun newInstance(): FeedFragment {
             return FeedFragment()
@@ -37,18 +38,18 @@ class FeedFragment : MvvmFragment<FeedFragmentBinding, FeedViewModel>() {
     }
 
     private fun initViews() {
-        mBinding.recyclerview.layoutManager = LinearLayoutManager(context)
-        mBinding.recyclerview.setLoadMoreEnable(true)
-        mBinding.recyclerview.setLoadMoreListener(object : org.xiao.ui.loadmore.LoadMoreRecyclerView.LoadMoreListener {
+        recyclerview.layoutManager = LinearLayoutManager(context)
+        recyclerview.setLoadMoreEnable(true)
+        recyclerview.setLoadMoreListener(object : org.xiao.ui.loadmore.LoadMoreRecyclerView.LoadMoreListener {
             override fun onLoadMore() {
                 if (mModel.loadMoreData()) {
-                    mBinding.recyclerview.setLoadMoreComplete()
+                    recyclerview.setLoadMoreComplete()
                 } else {
-                    mBinding.recyclerview.setNoMoreContent()
+                    recyclerview.setNoMoreContent()
                 }
             }
         })
-        mBinding.recyclerview.adapter = cardAdapter
+        recyclerview.adapter = cardAdapter
     }
 
     private fun initObservers() {

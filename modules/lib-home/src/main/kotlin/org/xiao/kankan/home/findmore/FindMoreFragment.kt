@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.findmore_fragment.*
 import org.xiao.kankan.home.R
 import org.xiao.kankan.home.adapter.CardAdapter
 import org.xiao.kankan.home.databinding.FindmoreFragmentBinding
 import org.xiao.mvvm.MvvmFragment
 
-class FindMoreFragment : MvvmFragment<FindmoreFragmentBinding, FindmoreViewModel>() {
+class FindMoreFragment : MvvmFragment<FindmoreViewModel>() {
     companion object {
         fun newInstance(): FindMoreFragment {
             return FindMoreFragment()
@@ -36,8 +37,8 @@ class FindMoreFragment : MvvmFragment<FindmoreFragmentBinding, FindmoreViewModel
     }
 
     private fun initViews() {
-        mBinding.recyclerview.layoutManager = LinearLayoutManager(context)
-        mBinding.recyclerview.adapter = cardAdapter
+        recyclerview.layoutManager = LinearLayoutManager(context)
+        recyclerview.adapter = cardAdapter
     }
 
     private fun initObservers() {

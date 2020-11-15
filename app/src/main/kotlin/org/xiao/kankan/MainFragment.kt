@@ -1,17 +1,16 @@
 package org.xiao.kankan
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.main_fragment.*
 import org.xiao.kankan.community.CommunityFragment
-import org.xiao.kankan.databinding.MainFragmentBinding
 import org.xiao.kankan.home.HomeFragment
 import org.xiao.kankan.notification.NotificationFragment
 import org.xiao.kankan.personal.PersonalFragment
 import org.xiao.mvvm.MvvmFragment
 
-class MainFragment : MvvmFragment<MainFragmentBinding, MainViewModel>() {
+class MainFragment : MvvmFragment<MainViewModel>() {
 
     companion object {
         const val TAG = "MainFragment"
@@ -24,7 +23,7 @@ class MainFragment : MvvmFragment<MainFragmentBinding, MainViewModel>() {
     private val mHomeFragment by lazy {
         val tag = HomeFragment::class.java.name
         if (childFragmentManager.findFragmentByTag(tag) != null) {
-            return@lazy childFragmentManager.findFragmentByTag(tag)
+            return@lazy childFragmentManager.findFragmentByTag(tag) as HomeFragment
         }
         HomeFragment.newInstance()
     }
@@ -61,7 +60,7 @@ class MainFragment : MvvmFragment<MainFragmentBinding, MainViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mBinding.bottomBar.setOnNavigationItemSelectedListener {
+        bottom_bar.setOnNavigationItemSelectedListener {
             var willShowFragment: Fragment? = null
             when (it.itemId) {
                 R.id.item_home -> {

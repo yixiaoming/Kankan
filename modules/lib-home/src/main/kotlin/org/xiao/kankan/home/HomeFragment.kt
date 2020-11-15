@@ -3,13 +3,14 @@ package org.xiao.kankan.home
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import org.xiao.kankan.home.databinding.HomeFragmentBinding
+import kotlinx.android.synthetic.main.home_fragment.*
+import kotlinx.android.synthetic.main.home_toolbar.view.*
 import org.xiao.kankan.home.feed.FeedFragment
 import org.xiao.kankan.home.findmore.FindMoreFragment
 import org.xiao.kankan.home.recommend.RecommendFragment
 import org.xiao.mvvm.MvvmFragment
 
-class HomeFragment : MvvmFragment<HomeFragmentBinding, HomeViewModel>() {
+class HomeFragment : MvvmFragment<HomeViewModel>() {
 
     companion object {
         fun newInstance(): HomeFragment {
@@ -35,11 +36,11 @@ class HomeFragment : MvvmFragment<HomeFragmentBinding, HomeViewModel>() {
                 RecommendFragment.newInstance(),
                 FeedFragment.newInstance()
         )
-        mBinding.viewpager.offscreenPageLimit = 0
+        viewpager.offscreenPageLimit = 0
         pagerAdapter.setFragments(fragments)
-        mBinding.viewpager.adapter = pagerAdapter
-        mBinding.homeToolbar.tabLayout.setTitles(arrayOf("发现", "推荐", "日报"))
-        mBinding.homeToolbar.tabLayout.setViewPager(mBinding.viewpager)
-        mBinding.viewpager.currentItem = 1
+        viewpager.adapter = pagerAdapter
+        home_toolbar.tab_layout.setTitles(arrayOf("发现", "推荐", "日报"))
+        home_toolbar.tab_layout.setViewPager(viewpager)
+        viewpager.currentItem = 1
     }
 }

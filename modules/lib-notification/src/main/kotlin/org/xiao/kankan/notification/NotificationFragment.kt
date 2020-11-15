@@ -1,9 +1,8 @@
 package org.xiao.kankan.notification
 
-import org.xiao.kankan.notification.databinding.NotificationFragmentBinding
 import org.xiao.mvvm.MvvmFragment
 
-class NotificationFragment : MvvmFragment<NotificationFragmentBinding, NotificationViewModel>() {
+class NotificationFragment : MvvmFragment<NotificationViewModel>() {
     companion object {
         fun newInstance(): NotificationFragment {
             return NotificationFragment()
