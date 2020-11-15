@@ -68,6 +68,7 @@ dependencies {
     implementation common.gson
     implementation common.androidxAnnotation
     implementation common.swiperefreshlayout
+    implementation project(":common:lib-ui")
 }
 repositories {
     mavenCentral()
